@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Code coverage report for node-npmtest-faucet/faucet/index.js</title>
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-faucet/node_modules/faucet/index.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -194,7 +192,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-faucet">npmtest-faucet (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-faucet/faucet/index.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-faucet/node_modules/faucet/index.js</span></h1>
     <h2>
         
         Statements: <span class="metric">11.76% <small>(8 / 68)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-faucet/faucet/</a> &#187; index.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-faucet/node_modules/faucet/</a> » index.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -467,116 +465,116 @@ var duplexer = require('duplexer');
 var parser = require('tap-parser');
 var sprintf = require('sprintf');
 &nbsp;
-module.exports = <span class="fstat-no" title="function not covered" >function (opts) {</span>
-<span class="cstat-no" title="statement not covered" >    if (!opts) <span class="cstat-no" title="statement not covered" >opts = {};</span></span>
-<span class="cstat-no" title="statement not covered" >    var tap = parser();</span>
-<span class="cstat-no" title="statement not covered" >    var out = through2();</span>
-<span class="cstat-no" title="statement not covered" >    var test, lastAssert;</span>
+module.exports = <span class="fstat-no" title="function not covered">function (opts) {</span>
+<span class="cstat-no" title="statement not covered">    if (!opts) <span class="cstat-no" title="statement not covered">opts = {};</span></span>
+<span class="cstat-no" title="statement not covered">    var tap = parser();</span>
+<span class="cstat-no" title="statement not covered">    var out = through2();</span>
+<span class="cstat-no" title="statement not covered">    var test, lastAssert;</span>
     
-<span class="cstat-no" title="statement not covered" >    tap.on('comment', <span class="fstat-no" title="function not covered" >function (comment) {</span></span>
-<span class="cstat-no" title="statement not covered" >        if (comment === 'fail 0') <span class="cstat-no" title="statement not covered" >return; </span></span>// a mocha thing
+<span class="cstat-no" title="statement not covered">    tap.on('comment', <span class="fstat-no" title="function not covered">function (comment) {</span></span>
+<span class="cstat-no" title="statement not covered">        if (comment === 'fail 0') <span class="cstat-no" title="statement not covered">return; </span></span>// a mocha thing
         
-<span class="cstat-no" title="statement not covered" >        if (test &amp;&amp; test.ok &amp;&amp; test.assertions.length === 0</span>
+<span class="cstat-no" title="statement not covered">        if (test &amp;&amp; test.ok &amp;&amp; test.assertions.length === 0</span>
         &amp;&amp; /^(tests|pass)\s+\d+$/.test(test.name)) {
-<span class="cstat-no" title="statement not covered" >            out.push('\r' + trim(test.name));</span>
+<span class="cstat-no" title="statement not covered">            out.push('\r' + trim(test.name));</span>
         }
-        else <span class="cstat-no" title="statement not covered" >if (test &amp;&amp; test.ok) {</span>
-<span class="cstat-no" title="statement not covered" >            var s = updateName(test.offset + 1, '✓ ' + test.name, 32);</span>
-<span class="cstat-no" title="statement not covered" >            out.push('\r' + s);</span>
+        else <span class="cstat-no" title="statement not covered">if (test &amp;&amp; test.ok) {</span>
+<span class="cstat-no" title="statement not covered">            var s = updateName(test.offset + 1, '✓ ' + test.name, 32);</span>
+<span class="cstat-no" title="statement not covered">            out.push('\r' + s);</span>
         }
         
-<span class="cstat-no" title="statement not covered" >        test = {</span>
+<span class="cstat-no" title="statement not covered">        test = {</span>
             name: comment,
             assertions: [],
             offset: 0,
             ok: true
         };
-<span class="cstat-no" title="statement not covered" >        out.push('\r' + trim('# ' + comment) + '\x1b[K\n');</span>
+<span class="cstat-no" title="statement not covered">        out.push('\r' + trim('# ' + comment) + '\x1b[K\n');</span>
     });
     
-<span class="cstat-no" title="statement not covered" >    tap.on('assert', <span class="fstat-no" title="function not covered" >function (res) {</span></span>
-<span class="cstat-no" title="statement not covered" >        var ok = res.ok ? 'ok' : 'not ok';</span>
-<span class="cstat-no" title="statement not covered" >        var c = res.ok ? 32 : 31;</span>
-<span class="cstat-no" title="statement not covered" >        if (!test) {</span>
+<span class="cstat-no" title="statement not covered">    tap.on('assert', <span class="fstat-no" title="function not covered">function (res) {</span></span>
+<span class="cstat-no" title="statement not covered">        var ok = res.ok ? 'ok' : 'not ok';</span>
+<span class="cstat-no" title="statement not covered">        var c = res.ok ? 32 : 31;</span>
+<span class="cstat-no" title="statement not covered">        if (!test) {</span>
             // mocha produces TAP results this way, whatever
-<span class="cstat-no" title="statement not covered" >            var s = trim(res.name.trim());</span>
-<span class="cstat-no" title="statement not covered" >            out.push(sprintf(</span>
+<span class="cstat-no" title="statement not covered">            var s = trim(res.name.trim());</span>
+<span class="cstat-no" title="statement not covered">            out.push(sprintf(</span>
                 '\x1b[1m\x1b[' + c + 'm%s\x1b[0m\n',
                 trim((res.ok ? '✓' : '⨯') + ' ' +  s)
             ));
-<span class="cstat-no" title="statement not covered" >            return;</span>
+<span class="cstat-no" title="statement not covered">            return;</span>
         }
         
-<span class="cstat-no" title="statement not covered" >        var fmt = '\r  %s \x1b[1m\x1b[' + c + 'm%d\x1b[0m %s\x1b[K';</span>
-<span class="cstat-no" title="statement not covered" >        var str = sprintf(fmt, ok, res.number, res.name);</span>
+<span class="cstat-no" title="statement not covered">        var fmt = '\r  %s \x1b[1m\x1b[' + c + 'm%d\x1b[0m %s\x1b[K';</span>
+<span class="cstat-no" title="statement not covered">        var str = sprintf(fmt, ok, res.number, res.name);</span>
         
-<span class="cstat-no" title="statement not covered" >        if (!res.ok) {</span>
-<span class="cstat-no" title="statement not covered" >            var y = (++ test.offset) + 1;</span>
-<span class="cstat-no" title="statement not covered" >            str += '\n';</span>
-<span class="cstat-no" title="statement not covered" >            if (test.ok) {</span>
-<span class="cstat-no" title="statement not covered" >                str += updateName(y, '⨯ ' + test.name, 31)</span>
+<span class="cstat-no" title="statement not covered">        if (!res.ok) {</span>
+<span class="cstat-no" title="statement not covered">            var y = (++ test.offset) + 1;</span>
+<span class="cstat-no" title="statement not covered">            str += '\n';</span>
+<span class="cstat-no" title="statement not covered">            if (test.ok) {</span>
+<span class="cstat-no" title="statement not covered">                str += updateName(y, '⨯ ' + test.name, 31)</span>
             }
-<span class="cstat-no" title="statement not covered" >            test.ok = false;</span>
+<span class="cstat-no" title="statement not covered">            test.ok = false;</span>
         }
-<span class="cstat-no" title="statement not covered" >        out.push(str);</span>
-<span class="cstat-no" title="statement not covered" >        test.assertions.push(res);</span>
+<span class="cstat-no" title="statement not covered">        out.push(str);</span>
+<span class="cstat-no" title="statement not covered">        test.assertions.push(res);</span>
     });
     
-<span class="cstat-no" title="statement not covered" >    tap.on('extra', <span class="fstat-no" title="function not covered" >function (extra) {</span></span>
-<span class="cstat-no" title="statement not covered" >        if (!test || test.assertions.length === 0) <span class="cstat-no" title="statement not covered" >return;</span></span>
-<span class="cstat-no" title="statement not covered" >        var last = test.assertions[test.assertions.length-1];</span>
-<span class="cstat-no" title="statement not covered" >        if (!last.ok) {</span>
-<span class="cstat-no" title="statement not covered" >            out.push(extra.split('\n').map(<span class="fstat-no" title="function not covered" >function (line) {</span></span>
-<span class="cstat-no" title="statement not covered" >                return '  ' + line;</span>
+<span class="cstat-no" title="statement not covered">    tap.on('extra', <span class="fstat-no" title="function not covered">function (extra) {</span></span>
+<span class="cstat-no" title="statement not covered">        if (!test || test.assertions.length === 0) <span class="cstat-no" title="statement not covered">return;</span></span>
+<span class="cstat-no" title="statement not covered">        var last = test.assertions[test.assertions.length-1];</span>
+<span class="cstat-no" title="statement not covered">        if (!last.ok) {</span>
+<span class="cstat-no" title="statement not covered">            out.push(extra.split('\n').map(<span class="fstat-no" title="function not covered">function (line) {</span></span>
+<span class="cstat-no" title="statement not covered">                return '  ' + line;</span>
             }).join('\n') + '\n');
         }
     });
     
-<span class="cstat-no" title="statement not covered" >    tap.on('results', <span class="fstat-no" title="function not covered" >function (res) {</span></span>
-<span class="cstat-no" title="statement not covered" >        if (test &amp;&amp; /^fail\s+\d+$/.test(test.name)) {</span>
-<span class="cstat-no" title="statement not covered" >            out.push(updateName(test.offset + 1, '⨯ ' + test.name, 31));</span>
+<span class="cstat-no" title="statement not covered">    tap.on('results', <span class="fstat-no" title="function not covered">function (res) {</span></span>
+<span class="cstat-no" title="statement not covered">        if (test &amp;&amp; /^fail\s+\d+$/.test(test.name)) {</span>
+<span class="cstat-no" title="statement not covered">            out.push(updateName(test.offset + 1, '⨯ ' + test.name, 31));</span>
         }
-        else <span class="cstat-no" title="statement not covered" >if (test &amp;&amp; test.ok) {</span>
-<span class="cstat-no" title="statement not covered" >            out.push(updateName(test.offset + 1, '✓ ' + test.name, 32));</span>
+        else <span class="cstat-no" title="statement not covered">if (test &amp;&amp; test.ok) {</span>
+<span class="cstat-no" title="statement not covered">            out.push(updateName(test.offset + 1, '✓ ' + test.name, 32));</span>
         }
         
-<span class="cstat-no" title="statement not covered" >        res.errors.forEach(<span class="fstat-no" title="function not covered" >function (err, ix) {</span></span>
-<span class="cstat-no" title="statement not covered" >            out.push(sprintf(</span>
+<span class="cstat-no" title="statement not covered">        res.errors.forEach(<span class="fstat-no" title="function not covered">function (err, ix) {</span></span>
+<span class="cstat-no" title="statement not covered">            out.push(sprintf(</span>
                 'not ok \x1b[1m\x1b[31m%d\x1b[0m %s\n',
                 ix + 1 + res.asserts.length, err.message
             ));
         });
         
-<span class="cstat-no" title="statement not covered" >        if (!res.ok &amp;&amp; !/^fail\s+\d+$/.test(test &amp;&amp; test.name)) {</span>
-<span class="cstat-no" title="statement not covered" >            out.push(sprintf(</span>
+<span class="cstat-no" title="statement not covered">        if (!res.ok &amp;&amp; !/^fail\s+\d+$/.test(test &amp;&amp; test.name)) {</span>
+<span class="cstat-no" title="statement not covered">            out.push(sprintf(</span>
                 '\r\x1b[1m\x1b[31m⨯ fail  %s\x1b[0m\x1b[K\n',
                 (res.errors.length + res.fail.length) || ''
             ));
         }
         
-<span class="cstat-no" title="statement not covered" >        out.push(null);</span>
+<span class="cstat-no" title="statement not covered">        out.push(null);</span>
         
-<span class="cstat-no" title="statement not covered" >        dup.emit('results', res);</span>
-<span class="cstat-no" title="statement not covered" >        if (!res.ok) <span class="cstat-no" title="statement not covered" >dup.emit('fail');</span></span>
-<span class="cstat-no" title="statement not covered" >        dup.exitCode = res.ok ? 0 : 1;</span>
+<span class="cstat-no" title="statement not covered">        dup.emit('results', res);</span>
+<span class="cstat-no" title="statement not covered">        if (!res.ok) <span class="cstat-no" title="statement not covered">dup.emit('fail');</span></span>
+<span class="cstat-no" title="statement not covered">        dup.exitCode = res.ok ? 0 : 1;</span>
     });
     
-<span class="cstat-no" title="statement not covered" >    var dup = duplexer(tap, out);</span>
-<span class="cstat-no" title="statement not covered" >    return dup;</span>
+<span class="cstat-no" title="statement not covered">    var dup = duplexer(tap, out);</span>
+<span class="cstat-no" title="statement not covered">    return dup;</span>
     
-<span class="fstat-no" title="function not covered" >    function showTest (test) {</span>
-<span class="cstat-no" title="statement not covered" >        out.push('\r');</span>
+<span class="fstat-no" title="function not covered">    function showTest (test) {</span>
+<span class="cstat-no" title="statement not covered">        out.push('\r');</span>
     }
     
-<span class="fstat-no" title="function not covered" >    function trim (s) {</span>
-<span class="cstat-no" title="statement not covered" >        if (opts.width &amp;&amp; s.length &gt; opts.width - 2) {</span>
-<span class="cstat-no" title="statement not covered" >            s = s.slice(0, opts.width - 5) + '...';</span>
+<span class="fstat-no" title="function not covered">    function trim (s) {</span>
+<span class="cstat-no" title="statement not covered">        if (opts.width &amp;&amp; s.length &gt; opts.width - 2) {</span>
+<span class="cstat-no" title="statement not covered">            s = s.slice(0, opts.width - 5) + '...';</span>
         }
-<span class="cstat-no" title="statement not covered" >        return s;</span>
+<span class="cstat-no" title="statement not covered">        return s;</span>
     }
     
-<span class="fstat-no" title="function not covered" >    function updateName (y, str, c) {</span>
-<span class="cstat-no" title="statement not covered" >        return '\x1b[' + y + 'A'</span>
+<span class="fstat-no" title="function not covered">    function updateName (y, str, c) {</span>
+<span class="cstat-no" title="statement not covered">        return '\x1b[' + y + 'A'</span>
             + '\x1b[1G'
             + '\x1b[1m\x1b[' + c + 'm'
             + trim(str)
@@ -587,10 +585,11 @@ module.exports = <span class="fstat-no" title="function not covered" >function (
 };
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Wed Apr 12 2017 00:30:24 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 18 2017 18:39:31 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
